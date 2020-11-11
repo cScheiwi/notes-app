@@ -35,7 +35,7 @@ async function showNote(req, res) {
         note = await noteStore.getNote(req.params.id);
     else
         note = new Note();
-    res.render('noteDetail', {'note': note});
+    res.render('noteDetail', {'note': note, 'session': req.session});
 }
 
 async function updateNote(req, res) {
