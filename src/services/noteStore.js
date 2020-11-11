@@ -1,7 +1,6 @@
 const Datastore = require('nedb-promises');
 const Nedb = require('nedb-promises');
-const notes = require('../model/Note');
-const Note = notes.Note;
+const Note = require('../model/Note.js');
 
 const db = new Datastore({filename: './data/notes.db', autoload: true});
 

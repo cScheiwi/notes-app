@@ -1,6 +1,5 @@
 const noteStore = require('../services/noteStore');
-const notes = require('../model/Note');
-const Note = notes.Note;
+const Note = require('../model/Note.js');
 
 async function index(req, res) {
     let sessionUserSettings = req.session.userSettings;
@@ -23,7 +22,7 @@ async function index(req, res) {
 }
 
 async function createNote(req, res) {
-    const note = new Note(req.body.noteTitle, req.body.noteContent, req.body.noteImportance, 0, req.body.noteCompletedUntil, new Date());
+    const note = new Note(req.body.noteTitle, req.body.noteContent, req.body.noteImportance, false, req.body.noteCompletedUntil, new Date());
     await noteStore.add(note);
 
     res.redirect('/');
@@ -34,7 +33,8 @@ async function showNote(req, res) {
     if (req.params.id !== undefined)
         note = await noteStore.getNote(req.params.id);
     else
-        note = new Note();
+        // @ts-ignore
+        note = new Note("", "", 1, false, null, null);
     res.render('noteDetail', {'note': note, 'session': req.session});
 }
 
