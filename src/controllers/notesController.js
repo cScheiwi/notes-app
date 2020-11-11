@@ -1,5 +1,7 @@
 const noteStore = require('../services/noteStore');
-const Note = require('../model/Note.js');
+// @ts-ignore
+const notes = require('../model/Note.js');
+const Note = notes.Note;
 
 async function index(req, res) {
     let sessionUserSettings = req.session.userSettings;

@@ -16,4 +16,4 @@ class Note {
     }
 }
 
-export {Note};
+module.exports = {Note};

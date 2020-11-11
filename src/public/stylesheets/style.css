@@ -5,6 +5,7 @@ body {
 
 .wrap {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .filler {
@@ -16,8 +17,14 @@ body {
     height: 30px;
 }
 
+.edit-button {
+    width: 150px;
+    height: 30px;
+    margin-top: 12px;
+}
+
 .index-note {
-    height: 80px;
+    min-height: 80px;
     margin-top: 12px;
 }
 
@@ -32,6 +39,7 @@ body {
 
 .textBox-description {
     width: 100%;
+    min-width: 400px;
     height: 70%;
     resize: none;
 }
@@ -62,10 +70,3 @@ body {
     height: 90px;
     resize: none;
 }
-
-/*
-    @media (min-width: 800px)
-    blabla
-    @media (max-width: 800px)
-    blabla
-*/
