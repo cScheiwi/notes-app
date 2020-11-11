@@ -1,16 +1,10 @@
 const Datastore = require('nedb-promises');
 const Nedb = require('nedb-promises');
-const Note = require('../model/Note.js');
 
 const db = new Datastore({filename: './data/notes.db', autoload: true});
 
 async function add(note) {
     return await db.insert(note);
-}
-
-async function deleteNote(id) {
-    await this.db.update({_id: id}, {$set: {"state": "DELETED"}});
-    return await this.get(id);
 }
 
 async function getNote(id) {
@@ -46,7 +40,6 @@ async function update(note) {
 module.exports = {
     add,
     update,
-    deleteNote,
     getNote,
     getAllSortByCompletedUntil,
     getAllSortByCreationDate,
