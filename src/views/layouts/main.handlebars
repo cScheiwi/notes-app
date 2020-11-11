@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    {{{body}}}
-  </body>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Notes App</title>
+
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    {{#if session.userSettings.darkTheme}}
+        <link rel="stylesheet" href='/stylesheets/dark-mode.css'>
+    {{/if}}
+</head>
+<body>
+{{{body}}}
+</body>
 </html>

@@ -62,3 +62,10 @@ body {
     height: 90px;
     resize: none;
 }
+
+/*
+    @media (min-width: 800px)
+    blabla
+    @media (max-width: 800px)
+    blabla
+*/
