@@ -1,0 +1,64 @@
+<div class="wrap">
+    <form action="/note" method="get">
+        <button class="button" type="submit" id="index-note-create">Create new</button>
+    </form>
+    <div class="filler"></div>
+    <form action="/" method="post">
+        <input type="hidden" name="darkTheme" value="false">
+        <button class="button" type="submit" id="index-style-switcher">
+            {{#if session.userSettings.darkTheme}}
+                Enable light theme
+            {{else}}
+                Enable dark theme
+            {{/if}}
+        </button>
+    </form>
+</div>
+<div class="wrap">
+    <form action="/" method="post">
+        <input type="hidden" name="sortedKey" value="completedUntil"/>
+        <button class="button" type="submit" id="index-notes-order-by-finish-date">By finish Date</button>
+    </form>
+    <form action="/" method="post">
+        <input type="hidden" name="sortedKey" value="creationDate"/>
+        <button class="button" type="submit" id="index-notes-order-by-create-date">By creation Date</button>
+    </form>
+    <form action="/" method="post">
+        <input type="hidden" name="sortedKey" value="importance"/>
+        <button class="button" type="submit" id="index-notes-order-by-importance">By importance</button>
+    </form>
+    <div class="filler"></div>
+    <form action="/" method="post">
+        <input type="hidden" name="showFinished" value="true"/>
+        <button class="button" type="submit" id="index-notes-hide-finished">{{#if showFinished}}
+            Show{{else}}Hide{{/if}} Finished
+        </button>
+    </form>
+</div>
+<div>
+    {{#if notes}}
+        {{#each this.notes}}
+                <form action="/note/{{this._id}}" method="get" class="wrap index-note">
+                    <div class="note-first-segment">
+                        <label>{{this.completedUntil}}</label>
+                        <div>
+                            <input id="index-note-completed" type="checkbox" disabled="disabled"
+                                   {{#if this.completed}}checked{{/if}}>
+                            <label for="index-note-completed">finished</label>
+                        </div>
+                    </div>
+                    <div class="note-second-segment">
+                        <div class="wrap">
+                            <label>{{this.title}}</label>
+                            <div class="filler"></div>
+                            <label>{{this.importance}}</label>
+                        </div>
+                        <textarea class="textBox-description" id="index-note-description" disabled>{{this.content}}</textarea>
+                    </div>
+                    <button class="button" type="submit">Edit</button>
+                </form>
+        {{/each}}
+    {{else}}
+        <p>No notes here!</p>
+    {{/if}}
+</div>

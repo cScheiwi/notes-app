@@ -1,0 +1,22 @@
+{{#with note}}
+    <form action='/note{{#if _id}}/{{_id}}{{/if}}' method="post">
+        <div class="noteDetail-form-grid">
+            <label class="noteDetail-row-labels">Title</label>
+            <input type="text" name="noteTitle" required value="{{title}}"/>
+            <label class="noteDetail-row-labels">Description</label>
+            <textarea class="noteDetail-description" type="text" name="noteContent" required>{{content}}</textarea>
+            <label class="noteDetail-row-labels">Importance</label>
+            <input type="number" name="noteImportance" min="1" max="5" requiredvalue="{{importance}}"/>
+            <label class="noteDetail-row-labels">Completed until</label>
+            <input type="date" name="noteCompletedUntil" value="{{completedUntil}}"/>
+            <span class="noteDetail-grid-completed-item">
+                <input type="checkbox" , name="noteCompleted"{{#if completed}}checked{{/if}}>
+                <label>finished</label>
+            </span>
+            <span class="noteDetail-grid-buttons-item">
+                <button class="button" type="submit">Save</button>
+                <button class="button" onclick="window.location.href='/'">Cancel</button>
+            </span>
+        </div>
+    </form>
+{{/with}}

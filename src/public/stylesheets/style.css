@@ -1,0 +1,64 @@
+body {
+    padding: 10px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.wrap {
+    display: flex;
+}
+
+.filler {
+    flex-grow: 1;
+}
+
+.button {
+    width: 150px;
+    height: 30px;
+}
+
+.index-note {
+    height: 80px;
+    margin-top: 12px;
+}
+
+.note-first-segment {
+    width: 150px;
+}
+
+.note-second-segment {
+    flex-grow: 1;
+    padding-right: 24px;
+}
+
+.textBox-description {
+    width: 100%;
+    height: 70%;
+    resize: none;
+}
+
+.noteDetail-form-grid {
+    display: grid;
+    grid-gap: 12px;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr;
+}
+
+.noteDetail-grid-completed-item {
+    grid-row-start: 5;
+    grid-column-start: 2;
+}
+
+.noteDetail-grid-buttons-item {
+    grid-row-start: 6;
+    grid-column-start: 2;
+}
+
+.noteDetail-row-labels {
+    text-align: right;
+    font-weight: bold;
+}
+
+.noteDetail-description {
+    height: 90px;
+    resize: none;
+}
